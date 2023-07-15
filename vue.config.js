@@ -36,7 +36,17 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
+    //配置代理跨域
+    proxy: {
+      '/dev-api/admin/acl': {
+        target: 'http://39.98.123.211:8170',
+        pathRewrite: { '^/dev-api': '' },
+      },
+      '/dev-api': {
+        target: 'http://39.98.123.211:8510',
+        pathRewrite: { '^/dev-api': '' },
+      },
+    },
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
@@ -46,7 +56,8 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    }
+    },
+    output: { hashFunction: 'sha256' }
   },
   chainWebpack(config) {
     // it can improve the speed of the first screen, it is recommended to turn on preload
