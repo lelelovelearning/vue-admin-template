@@ -36,13 +36,6 @@ export const constantRoutes = [
     component: () => import("@/views/login/index"),
     hidden: true,
   },
-
-  {
-    path: "/404",
-    component: () => import("@/views/404"),
-    hidden: true,
-  },
-
   {
     path: "/",
     component: Layout,
@@ -56,40 +49,6 @@ export const constantRoutes = [
       },
     ],
   },
-  {
-    path: "/product",
-    component: Layout,
-    name: "Product",
-    meta: { title: "商品管理", icon: "el-icon-goods" },
-    children: [
-      {
-        path: "tradeMark",
-        name: "TradeMark",
-        component: () => import("@/views/product/tradeMark"),
-        meta: { title: "品牌管理" },
-      },
-      {
-        path: "attr",
-        name: "Attr",
-        component: () => import("@/views/product/Attr"),
-        meta: { title: "平台属性管理" },
-      },
-      {
-        path: "sku",
-        name: "Sku",
-        component: () => import("@/views/product/Sku"),
-        meta: { title: "Sku管理" },
-      },
-      {
-        path: "spu",
-        name: "Spu",
-        component: () => import("@/views/product/Spu"),
-        meta: { title: "Spu管理" },
-      },
-    ],
-  },
-  // 404 page must be placed at the end !!!
-  { path: "*", redirect: "/404", hidden: true },
 
 ];
 
@@ -198,7 +157,7 @@ export const constantRoutes = [
 
 // 任意路由，当路劲出现错误时重定向404
   // 404 page must be placed at the end !!!
-  export const anyRoutes = { path: '*', redirect: '/404', hidden: true }
+export const anyRoutes = { path: '*', redirect: '/404', hidden: true }
 const createRouter = () =>
   new Router({
     // mode: 'history', // require service support
