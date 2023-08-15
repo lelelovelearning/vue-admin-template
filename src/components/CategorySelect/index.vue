@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <el-form :inline="true" class="demo-form-inline" :model="cForm">
+    <el-form :inline="true" class="demo-form-inline" :model="cForm" :disabled="isShow">
       <el-form-item label="一级分类">
         <el-select
           placeholder="请选择"
@@ -51,6 +51,7 @@
 <script>
 export default {
   name: "CategorySelect",
+  props:['isShow'],
   data() {
     return {
       //一级分类列表的数据

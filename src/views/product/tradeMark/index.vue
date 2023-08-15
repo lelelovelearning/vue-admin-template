@@ -3,7 +3,7 @@
     <el-button type="primary" icon="el-icon-plus" style="margin: 10px 0" @click="showDialog"
       >添加</el-button
     >
-    <el-table style="width: 100%" border :data="list">
+    <el-table style="width: 100%" border :data="list"> 
       <el-table-column
         label="序号"
         width="80px"
